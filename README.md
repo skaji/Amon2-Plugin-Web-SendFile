@@ -49,6 +49,19 @@ Here `%option` may be:
 
     http status. default: 200
 
+# TIPS
+
+### How to respect the filename field when using curl or wget?
+
+    > wget --content-disposition http://your-host/path/to/file
+    > curl -J -O http://your-host/path/to/file
+
+# SEE ALSO
+
+http://qiita.com/kuboon/items/fbf2c84b343d95e46663
+
+http://greenbytes.de/tech/tc2231/
+
 # LICENSE
 
 Copyright (C) Shoichi Kaji.

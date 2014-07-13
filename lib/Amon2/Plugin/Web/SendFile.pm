@@ -53,6 +53,8 @@ __END__
 
 =encoding utf-8
 
+=for stopwords wget
+
 =head1 NAME
 
 Amon2::Plugin::Web::SendFile - add send_file() method to your Amon2 application
@@ -112,6 +114,19 @@ content length.
 http status. default: 200
 
 =back
+
+=head1 TIPS
+
+=head3 How to respect the filename field when using curl or wget?
+
+    > wget --content-disposition http://your-host/path/to/file
+    > curl -J -O http://your-host/path/to/file
+
+=head1 SEE ALSO
+
+http://qiita.com/kuboon/items/fbf2c84b343d95e46663
+
+http://greenbytes.de/tech/tc2231/
 
 =head1 LICENSE
 
