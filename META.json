@@ -1,0 +1,71 @@
+{
+   "abstract" : "add send_file() method to your Amon2 application",
+   "author" : [
+      "Shoichi Kaji <skaji@cpan.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Minilla/v2.1.1, CPAN::Meta::Converter version 2.140640",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Amon2-Plugin-Web-SendFile",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "xt",
+         "inc",
+         "share",
+         "eg",
+         "examples",
+         "author",
+         "builder"
+      ]
+   },
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "Module::Build::Tiny" : "0.035"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Test::CPAN::Meta" : "0",
+            "Test::MinimumVersion::Fast" : "0.04",
+            "Test::PAUSE::Permissions" : "0.04",
+            "Test::Pod" : "1.41",
+            "Test::Spellunker" : "v0.2.7"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Amon2" : "0",
+            "URI::Escape" : "0",
+            "perl" : "5.008005"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "HTTP::Request::Common" : "0",
+            "Test::More" : "0.98"
+         }
+      }
+   },
+   "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/shoichikaji/Amon2-Plugin-Web-SendFile/issues"
+      },
+      "homepage" : "https://github.com/shoichikaji/Amon2-Plugin-Web-SendFile",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/shoichikaji/Amon2-Plugin-Web-SendFile.git",
+         "web" : "https://github.com/shoichikaji/Amon2-Plugin-Web-SendFile"
+      }
+   },
+   "version" : "0.01",
+   "x_authority" : "cpan:SKAJI"
+}

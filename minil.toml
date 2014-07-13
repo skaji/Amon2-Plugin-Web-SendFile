@@ -1,0 +1,6 @@
+name = "Amon2-Plugin-Web-SendFile"
+# badges = ["travis"]
+authority="cpan:SKAJI"
+
+module_maker="ModuleBuildTiny"
+
