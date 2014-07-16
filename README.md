@@ -38,8 +38,15 @@ Here `%option` may be:
 
 - filename
 
-    filename. If you specify a string with ordinal value > 0x7f, then
-    it is passed to `URI::Escape::uri_escape_utf8()`.
+    filename. If filename contains a wide character,
+    then it is assumed `utf8` option true.
+
+- utf8
+
+    if true, `filename` is passed to `URI::Escape::uri_escape_utf8()`
+    and `content-disposition` header will be
+
+        q[attachment; filename*=UTF-8''] . URI::Escape::uri_escape_utf8(filename)
 
 - length
 

@@ -62,6 +62,10 @@ spew "$tempdir/file.txt", $content;
         my $c = shift;
         $c->send_file(status => 418, body => "hoge", filename => "hoge.txt");
     };
+    get "/utf8" => sub {
+        my $c = shift;
+        $c->send_file(utf8 => 1, body => "hoge", filename => "hoge.txt");
+    };
 }
 
 my $app = MyApp::Web->to_app;
@@ -129,6 +133,16 @@ test_psgi $app, sub {
     is $res->header('content-type'), "application/octet-stream";
     is $res->header('content-length'), length("hoge");
     is $res->header('content-disposition'), qq[attachment; filename="hoge.txt"];
+    is $res->content, "hoge";
+};
+
+test_psgi $app, sub {
+    my $cb  = shift;
+    my $res = $cb->( GET "/utf8" );
+    is $res->code, 200;
+    is $res->header('content-type'), "application/octet-stream";
+    is $res->header('content-length'), length("hoge");
+    is $res->header('content-disposition'), qq[attachment; filename*=UTF-8''hoge.txt];
     is $res->content, "hoge";
 };
 

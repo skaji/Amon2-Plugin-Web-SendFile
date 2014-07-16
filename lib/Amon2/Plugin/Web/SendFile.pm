@@ -33,7 +33,7 @@ sub init {
         my $filename = $option{filename} || basename($option{path});
 
         my $filename_field;
-        if ($filename =~ /[^\x00-\x7f]/) { # XXX [^\x00-\xff] ?
+        if ($option{utf8} || $filename =~ /[^\x00-\xff]/) {
             $filename_field =  q[filename*=UTF-8''] . uri_escape_utf8($filename);
         } else {
             $filename_field = qq[filename="$filename"];
@@ -102,8 +102,15 @@ response body. You can specify either a string or a filehandle.
 
 =item filename
 
-filename. If you specify a string with ordinal value > 0x7f, then
-it is passed to C<URI::Escape::uri_escape_utf8()>.
+filename. If filename contains a wide character,
+then it is assumed C<utf8> option true.
+
+=item utf8
+
+if true, C<filename> is passed to C<URI::Escape::uri_escape_utf8()>
+and C<content-disposition> header will be
+
+    q[attachment; filename*=UTF-8''] . URI::Escape::uri_escape_utf8(filename)
 
 =item length
 
